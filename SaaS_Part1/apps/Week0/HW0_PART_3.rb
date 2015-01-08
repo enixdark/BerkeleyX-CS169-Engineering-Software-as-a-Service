@@ -21,6 +21,7 @@ class BookInStock
 	def isbn=(isbn)
 		if isbn.empty?
 			raise ArgumentError("ISBN number is the empty string")
+		end
 		@isbn = isbn
 	end
 
@@ -28,7 +29,7 @@ class BookInStock
 		_check = price =~ /[^d]/
 		if price <= 0
 			raise ArgumentError("price must greater than zero")
-		elsif !price.nil?
+		elsif !_check.nil?
 			raise ArgumentError("price must a digit")
 		else
 			@price = price
@@ -36,6 +37,7 @@ class BookInStock
 	end
 
 	def price_as_string
-		puts "the book #{@isbn} have price $.2f" % @price
+		money = "$%.2f" % @price
+		"the book #{@isbn} have price #{money}"
 	end
 end

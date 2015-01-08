@@ -25,6 +25,6 @@ that is a multiple of 4. NOTE: be sure it returns false if the string is not a v
 """
 def binary_multiple_of_4?(s)
 	_check = s =~ /[^01]/
-	return true if _check.nil?
+	return true if _check.nil? and s.to_i(2)%4==0
 	return false
 end

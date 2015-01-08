@@ -26,7 +26,6 @@ in the array of integers sum to n. An empty array or single element array should
 """
 require 'set'
 def sum_to_n?(array)
-	data = Set.new array
-	return false if data.size < 2
+	return false if Set.new(array).size < 2
 	return true
 end
